@@ -19,7 +19,7 @@ our_node *stack_a(char **str,char **argv)
     our_node *temp;
     our_node *head;
 
-
+//hi
     i = 0;
     head = NULL;
     while(str[i])
