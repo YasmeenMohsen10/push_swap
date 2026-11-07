@@ -73,7 +73,7 @@ void pa_and_pb(our_node *a,our_node *b,char flag)
         aa -> next = NULL;
     }
 }
-void ra_and_rb(our_node **head,char flag)
+void rra_and_rrb(our_node **head,char flag)
 {
     our_node *last;
     our_node *current;
@@ -95,7 +95,7 @@ void ra_and_rb(our_node **head,char flag)
     else if (flag  == 'r')
         write(1, "rr\n", 3);
 }
-void rr(our_node **a, our_node **b)
+void rrr(our_node **a, our_node **b)
 {
     ra_and_rb(a, 'r');
     ra_and_rb(b, '\0');
