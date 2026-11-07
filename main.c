@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymuhsen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:37:21 by ymuhsen           #+#    #+#             */
-/*   Updated: 2026/11/02 11:37:27 by ymuhsen          ###   ########.fr       */
+/*   Updated: 2026/11/04 16:59:52 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
 
+
+#include "push_swap.h"
 
 our_node *stack_a(char **str,char **argv)
 {
@@ -19,7 +20,6 @@ our_node *stack_a(char **str,char **argv)
     our_node *temp;
     our_node *head;
 
-//hi
     i = 0;
     head = NULL;
     while(str[i])
@@ -45,6 +45,8 @@ int main(int argc, char **argv)
     char    **str;
     int     i;
     our_node *head;
+    our_node *h;
+
 
     i = 0;
     if (argc == 1)
@@ -55,14 +57,31 @@ int main(int argc, char **argv)
     if(!cheak_digit(str,argv))
         return (0);
     head = stack_a(str,argv);
+    h = stack_a(str,argv);
     if(!head)
         return (0);
     if(!check_dub(head,str,argv))
         return (0);
+    printf("%f\n", disorder(head));
+    //sa_and_sb(head,'a');
+    our_node *her;
+    her = head;
     while(head)
     {
-        printf("%i\n",head -> number);
+        printf("%ia\n",head -> number);
         head = head -> next;
     }
-
+    our_node *hh;
+    hh = h;
+    while(h)
+    {
+        printf("%ib\n",h -> number);
+        h = h -> next;
+    }
+    ra_and_rb(her, 'b');
+    while(hh)
+    {
+        printf("%i\n",hh -> number);
+        hh = hh -> next;
+    }
 }

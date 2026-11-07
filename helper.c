@@ -26,3 +26,26 @@ size_t	count_word(char const *arr, char c)
 	}
 	return (num_words);
 }
+
+float disorder(our_node *head)
+{
+	float		mistakes;
+	float		total_pairs;
+	our_node	*j;
+
+	mistakes = 0;
+	total_pairs = 0;
+	while(head)
+	{
+		j = head -> next;
+		while(j)
+		{
+			total_pairs += 1;
+			if(head -> number > j -> number)
+				mistakes +=1;
+			j = j -> next;
+		}
+		head = head -> next;
+	}
+	return (mistakes / total_pairs);
+}
