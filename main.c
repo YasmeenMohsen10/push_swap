@@ -20,9 +20,9 @@ our_node *stack_a(char **str,char **argv)
     our_node *temp;
     our_node *head;
 
-    i = 0;
+    i = count_word(argv[1], ' ');
     head = NULL;
-    while(str[i])
+    while(--i >= 0)
     {
         content = ft_atoi(str[i]);
         if(!check_range(str,argv,head,content))
@@ -35,7 +35,6 @@ our_node *stack_a(char **str,char **argv)
            return(NULL);  
         }
         lstadd_back(&head,temp);
-        i++;
     }
     return (head);
 }
