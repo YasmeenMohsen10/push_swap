@@ -1,20 +1,15 @@
 #include "push_swap.h"
 
-void ra_and_rb(our_node **head,char flag)
+void ra_and_rb(our_node **head, char flag)
 {
-    our_node *last;
-    our_node *current;
+    our_node *first;
 
     if (lstsize(*head) < 2)
-        return ;
-    current = *head;
-    while (current -> next -> next)
-    {
-       current = current -> next;
-    }
-    last = current -> next;
-    current -> next = NULL;
-    lstadd_front(head, last);
+    return ;
+    first = *head;
+    *head = first -> next;
+    first -> next = NULL;
+    lstadd_back(head, first);
     if(flag == 'a')
         write(1, "ra\n", 3);
     else if (flag  == 'b')
@@ -22,8 +17,8 @@ void ra_and_rb(our_node **head,char flag)
     else if (flag  == 'r')
         write(1, "rr\n", 3);
 }
-void rr(our_node **a, our_node **b)
-{make
+void rrr(our_node **a, our_node **b)
+{
     ra_and_rb(a, 'r');
     ra_and_rb(b, '\0');
 }
