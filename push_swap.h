@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:13:26 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/04 17:01:18 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/07 20:45:26 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ float disorder(our_node *head);
 void sa_and_sb(our_node *head, char flag);
 void ss(our_node *a,our_node *b);
 void pa_and_pb(our_node *a,our_node *b,char flag);
-void ra_and_rb(our_node *head,char flag);
+void ra_and_rb(our_node **head,char flag);
+void rr(our_node **a, our_node **b);
+void	lstadd_front(our_node **lst, our_node *new);
 #endif

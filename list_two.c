@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ralshraw <ralshraw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 12:41:56 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/04 12:45:31 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/07 20:45:15 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,11 @@ unsigned int	lstsize(our_node *lst)
 		count++;
 	}
 	return (count);
+}
+void	lstadd_front(our_node **lst, our_node *new)
+{
+	if (lst == NULL || new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

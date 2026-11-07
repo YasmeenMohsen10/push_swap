@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:01:35 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 20:05:06 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/07 20:58:36 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,54 +52,51 @@ void pa_and_pb(our_node *a,our_node *b,char flag)
 
     bb = b;
     aa = a;
-    if(flag == 'a')
+    if (flag == 'a')
     {
         if(!lstsize(b))
             return ;
-         while(bb -> next)
-         {
+         while(bb -> next -> next)
              bb = bb -> next;
-             if(bb -> next)
-                 break; 
-         }
-        b = lstlast(b);
-        lstadd_back(&a,b);
+        lstadd_back(&a,lstlast(b));
         ft_printf("pa\n");
         bb -> next = NULL;
     }
     else  if(flag == 'b')
     {
-        while(aa -> next)
-        {
+        while(aa -> next -> next)
             aa = aa -> next;
-            if(aa -> next)
-            break; 
-        }
         if(!lstsize(a))
             return ;
-        a = lstlast(a);
-        lstadd_back(&b,a);
+        lstadd_back(&b,lstlast(a));
         ft_printf("pb\n");
         aa -> next = NULL;
     }
 }
-// void ra_and_rb(our_node *head,char flag)
-// {
-//     int number;
-//     our_node *temp;
-//    our_node *temp_tow;
-//     //char c;
-//     //c = flag;
-//     temp_tow = head;
-//     while(head -> next)
-//     {
-//         temp = head -> next;
-//         number = temp -> number;
-//         temp -> number = head -> number;
-//         head -> number = number;
-//         head = head -> next;
-//     }
-//     number = temp_tow -> number;
-//     temp_tow -> number = head -> number;
-//     head -> number = number;
-// }
+void ra_and_rb(our_node **head,char flag)
+{
+    our_node *last;
+    our_node *current;
+
+    if (lstsize(*head) < 2)
+        return ;
+    current = *head;
+    while (current -> next -> next)
+    {
+       current = current -> next;
+    }
+    last = current -> next;
+    current -> next = NULL;
+    lstadd_front(head, last);
+    if(flag == 'a')
+        write(1, "ra\n", 3);
+    else if (flag  == 'b')
+        write(1, "rb\n", 3);
+    else if (flag  == 'r')
+        write(1, "rr\n", 3);
+}
+void rr(our_node **a, our_node **b)
+{
+    ra_and_rb(a, 'r');
+    ra_and_rb(b, '\0');
+}
