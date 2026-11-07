@@ -89,11 +89,11 @@ void rra_and_rrb(our_node **head,char flag)
     current -> next = NULL;
     lstadd_front(head, last);
     if(flag == 'a')
-        write(1, "ra\n", 3);
+        write(1, "rra\n", 4);
     else if (flag  == 'b')
-        write(1, "rb\n", 3);
+        write(1, "rrb\n", 4);
     else if (flag  == 'r')
-        write(1, "rr\n", 3);
+        write(1, "rrr\n", 4);
 }
 void rrr(our_node **a, our_node **b)
 {
