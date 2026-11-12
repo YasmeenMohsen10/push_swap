@@ -36,12 +36,13 @@ static int is_sort(our_node *stack_a)
 void simple_algo(our_node *stack_a)
 {
     our_node *stack_b;
-    int     i;
     unsigned int    index;
     int minimum;
-    i = 0;
+
+    (void) minimum;
     index = 0;
     stack_b = NULL;
+    minimum = 0;
     while(lstsize (stack_a) > 2)
     {
         if(is_sort(stack_a))
@@ -49,22 +50,31 @@ void simple_algo(our_node *stack_a)
         minimum = min(stack_a,&index);
         if(index == 0)
         {
-            rra_and_rrb(&stack_a,'a');
+            ra_and_rb(&stack_a,'a');
+             if(is_sort(stack_a))
+                break;
             pa_and_pb(&stack_a,&stack_b,'b');
         }
         else if(index == lstsize(stack_a) - 1)
         {
             pa_and_pb(&stack_a,&stack_b,'b');
+            if(is_sort(stack_a))
+           break;
         }
         else if(index == lstsize(stack_a) - 2)
         {
             sa_and_sb(stack_a,'a');
+            if(is_sort(stack_a))
+           break;
             pa_and_pb(&stack_a,&stack_b,'b');
         }
         else if(index == 1)
         {
-            rra_and_rrb(&stack_a,'a');
-            rra_and_rrb(&stack_a,'a');
+            ra_and_rb(&stack_a,'a');
+            
+            ra_and_rb(&stack_a,'a');
+             if(is_sort(stack_a))
+           break;
             pa_and_pb(&stack_a,&stack_b,'b');
         }
         else
@@ -72,9 +82,13 @@ void simple_algo(our_node *stack_a)
             while(index != lstsize(stack_a) - 1 )
             {
                 min(stack_a,&index);
-                rra_and_rrb(&stack_a,'a');
+                ra_and_rb(&stack_a,'a');
+                 if(is_sort(stack_a))
+                break;
             }
             pa_and_pb(&stack_a,&stack_b,'b');
+             if(is_sort(stack_a))
+            break;
         }
     }
     if(!is_sort(stack_a))
@@ -82,14 +96,20 @@ void simple_algo(our_node *stack_a)
         sa_and_sb(stack_a,'a');
     } 
     //ft_printf("%i\n",lstsize (stack_b));
-    pa_and_pb(&stack_a,&stack_b,'a');
-    ft_printf("%i\n",lstsize (stack_b));
-    ft_printf("%i\n",stack_b -> number);
-    // while (lstsize (stack_b))
-    // {
-    //     pa_and_pb(&stack_a,&stack_b,'a');
-    //      ft_printf("%i",lstsize (stack_b));
-    // }
+    // pa_and_pb(&stack_a,&stack_b,'a');
+    // ft_printf("%i\n",lstsize (stack_b));
+    // ft_printf("%i\n",stack_b -> number);
+        // ft_printf("%i\n",lstsize (stack_b));
+        // ft_printf("%i\n",lstsize (stack_a));
+        // pa_and_pb(&stack_a,&stack_b,'a');
+        //  ft_printf("%i\n",lstsize (stack_b));
+        //  ft_printf("%i\n",lstsize (stack_a));
+
+    while (lstsize (stack_b))
+    {
+         pa_and_pb(&stack_a,&stack_b,'a');
+         //ft_printf("%i",lstsize (stack_b));
+    }
     // // ft_printf("%i\n",lstsize (stack_b));
     // ft_printf("%i",stack_b -> number);
      //pa_and_pb(&stack_a,&stack_b,'a');

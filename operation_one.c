@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:01:35 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/12 16:26:51 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 20:51:17 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,23 @@ void pa_and_pb(our_node **a,our_node **b,char flag)
     {
         if(!lstsize(*b))
             return ;
-         while(lstsize(*b) > 2 && bb -> next -> next)
-             bb = bb -> next;
+        while( lstsize(bb) > 1 && bb -> next -> next)
+            bb = bb -> next;
         lstadd_back(a,lstlast(*b));
         ft_printf("pa\n");
+        if(lstsize(*b) == 1)
+        {
+            *b = NULL ;
+            return ;
+        }
         bb -> next = NULL;
-        ft_printf("size of b :%i\n", lstsize(bb));
-        ft_printf("the content is: %i\n", lstlast(bb) -> number);
     }
     else  if(flag == 'b')
     {
-        while(aa -> next -> next)
-            aa = aa -> next;
         if(!lstsize(*a))
             return ;
+        while(aa -> next -> next)
+            aa = aa -> next;
         lstadd_back(b,lstlast(*a));
         ft_printf("pb\n");
         aa -> next = NULL;
@@ -99,6 +102,6 @@ void rra_and_rrb(our_node **head,char flag)
 }
 void rrr(our_node **a, our_node **b)
 {
-    ra_and_rb(a, 'r');
-    ra_and_rb(b, '\0');
+    rra_and_rrb(a, 'r');
+    rra_and_rrb(b, '\0');
 }
