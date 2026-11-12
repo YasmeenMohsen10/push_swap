@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 20:49:19 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 20:49:20 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 14:58:55 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ our_node *lstnew(int content)
 	node = malloc(sizeof(our_node));
 	if (node == NULL)
 		return (NULL);
-	node->number = content;
-	node->next = NULL;
+	node -> number = content;
+	node -> next = NULL;
 	return (node);
 }
 void	lstdelone(our_node *lst)

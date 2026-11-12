@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:37:21 by ymuhsen           #+#    #+#             */
-/*   Updated: 2026/11/07 20:48:28 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 13:27:32 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ our_node *stack_a(char **str,char **argv)
     }
     return (head);
 }
+
 #include <stdio.h>
 int main(int argc, char **argv)
 {
@@ -56,4 +57,11 @@ int main(int argc, char **argv)
         return (0);
     if(!check_dub(head,str,argv))
         return (0);
+    //ft_printf("%i",lstlast(head) -> number);
+    // while(head)
+    // {
+    //     printf ("%i", head -> number);
+    //     head = head -> next;
+    // }
+    simple_algo(head);
 }

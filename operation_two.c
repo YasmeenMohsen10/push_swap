@@ -17,7 +17,7 @@ void ra_and_rb(our_node **head, char flag)
     else if (flag  == 'r')
         write(1, "rr\n", 3);
 }
-void rrr(our_node **a, our_node **b)
+void rr(our_node **a, our_node **b)
 {
     ra_and_rb(a, 'r');
     ra_and_rb(b, '\0');

@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:13:26 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 21:59:41 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:07:12 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ unsigned int	lstsize(our_node *lst);
 float disorder(our_node *head);
 void sa_and_sb(our_node *head, char flag);
 void ss(our_node *a,our_node *b);
-void pa_and_pb(our_node *a,our_node *b,char flag);
-void ra_and_rb(our_node **head,char flag);
-void rr(our_node **a, our_node **b);
+void pa_and_pb(our_node **a,our_node **b,char flag);
 void	lstadd_front(our_node **lst, our_node *new);
 void ra_and_rb(our_node **head,char flag);
 void rr(our_node **a, our_node **b);
+void rra_and_rrb(our_node **head,char flag);
+void rrr(our_node **a, our_node **b);
+void simple_algo(our_node *stack_a);
 #endif

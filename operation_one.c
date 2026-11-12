@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:01:35 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 20:58:36 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 16:26:51 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,30 +45,32 @@ void ss(our_node *a,our_node *b)
     sa_and_sb(a,'s');
     sa_and_sb(b,'\0');
 }
-void pa_and_pb(our_node *a,our_node *b,char flag)
+void pa_and_pb(our_node **a,our_node **b,char flag)
 {
     our_node *bb;
     our_node *aa;
 
-    bb = b;
-    aa = a;
+    bb = *b;
+    aa = *a;
     if (flag == 'a')
     {
-        if(!lstsize(b))
+        if(!lstsize(*b))
             return ;
-         while(bb -> next -> next)
+         while(lstsize(*b) > 2 && bb -> next -> next)
              bb = bb -> next;
-        lstadd_back(&a,lstlast(b));
+        lstadd_back(a,lstlast(*b));
         ft_printf("pa\n");
         bb -> next = NULL;
+        ft_printf("size of b :%i\n", lstsize(bb));
+        ft_printf("the content is: %i\n", lstlast(bb) -> number);
     }
     else  if(flag == 'b')
     {
         while(aa -> next -> next)
             aa = aa -> next;
-        if(!lstsize(a))
+        if(!lstsize(*a))
             return ;
-        lstadd_back(&b,lstlast(a));
+        lstadd_back(b,lstlast(*a));
         ft_printf("pb\n");
         aa -> next = NULL;
     }
