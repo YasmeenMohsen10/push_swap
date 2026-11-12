@@ -1,5 +1,16 @@
 #include "push_swap.h"
-
+static int is_sort(our_node *stack_a)
+{
+    our_node *check;
+    while (stack_a -> next)
+    {
+        check = stack_a -> next;
+        if (check -> number > stack_a -> number)
+            return (0);
+        stack_a = stack_a -> next;
+    }
+    return (1);
+}
 static int min(our_node *stack_a, unsigned int *index)
 {
     int i;
@@ -20,18 +31,48 @@ static int min(our_node *stack_a, unsigned int *index)
     }
     return min;
 }
-static int is_sort(our_node *stack_a)
+
+
+static void max(our_node *stack_a, unsigned int *index)
 {
-    our_node *check;
-    while (stack_a -> next)
+    int i;
+    int max;
+
+    i = 0;
+    *index = 0;
+    max = stack_a -> number;
+    while(stack_a)
     {
-        check = stack_a -> next;
-        if (check -> number > stack_a -> number)
-            return (0);
+        if(stack_a -> number > max)
+        {
+            max = stack_a -> number;
+            *index = i;
+        }
         stack_a = stack_a -> next;
+        i++;
     }
-    return (1);
 }
+void sort_three(our_node **a)
+{
+    unsigned int    index;
+    index = 0;
+    max(*a,&index);
+    if(index == 2)
+    {
+        rra_and_rrb(a,'a');
+        if(is_sort(*a))
+            return ;
+        sa_and_sb(*a,'a'); 
+    }
+    if(index == 1)
+    {
+      ra_and_rb(a,'a');
+      if(is_sort(*a))
+        return ; 
+        sa_and_sb(*a,'a'); 
+    }
+}
+
 #include <stdio.h>
 void simple_algo(our_node *stack_a)
 {
@@ -43,16 +84,23 @@ void simple_algo(our_node *stack_a)
     index = 0;
     stack_b = NULL;
     minimum = 0;
-    while(lstsize (stack_a) > 2)
+    if(lstsize (stack_a) == 3)
+    {
+            if(is_sort(stack_a))
+            return ;
+            sort_three(&stack_a);
+            return ;
+    }
+    while(lstsize (stack_a) > 3)
     {
         if(is_sort(stack_a))
            break; 
         minimum = min(stack_a,&index);
         if(index == 0)
         {
-            ra_and_rb(&stack_a,'a');
+            rra_and_rrb(&stack_a,'a');
              if(is_sort(stack_a))
-                break;
+            break;
             pa_and_pb(&stack_a,&stack_b,'b');
         }
         else if(index == lstsize(stack_a) - 1)
@@ -70,9 +118,9 @@ void simple_algo(our_node *stack_a)
         }
         else if(index == 1)
         {
-            ra_and_rb(&stack_a,'a');
+            rra_and_rrb(&stack_a,'a');
             
-            ra_and_rb(&stack_a,'a');
+            rra_and_rrb(&stack_a,'a');
              if(is_sort(stack_a))
            break;
             pa_and_pb(&stack_a,&stack_b,'b');
@@ -82,7 +130,7 @@ void simple_algo(our_node *stack_a)
             while(index != lstsize(stack_a) - 1 )
             {
                 min(stack_a,&index);
-                ra_and_rb(&stack_a,'a');
+                rra_and_rrb(&stack_a,'a');
                  if(is_sort(stack_a))
                 break;
             }

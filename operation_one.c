@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:01:35 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/12 20:51:17 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 20:57:54 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void pa_and_pb(our_node **a,our_node **b,char flag)
         aa -> next = NULL;
     }
 }
-void rra_and_rrb(our_node **head,char flag)
+void ra_and_rb(our_node **head,char flag)
 {
     our_node *last;
     our_node *current;
@@ -94,14 +94,14 @@ void rra_and_rrb(our_node **head,char flag)
     current -> next = NULL;
     lstadd_front(head, last);
     if(flag == 'a')
-        write(1, "rra\n", 4);
+        write(1, "ra\n", 4);
     else if (flag  == 'b')
-        write(1, "rrb\n", 4);
+        write(1, "rb\n", 4);
     else if (flag  == 'r')
-        write(1, "rrr\n", 4);
+        write(1, "rr\n", 4);
 }
 void rrr(our_node **a, our_node **b)
 {
-    rra_and_rrb(a, 'r');
-    rra_and_rrb(b, '\0');
+    ra_and_rb(a, 'r');
+    ra_and_rb(b, '\0');
 }

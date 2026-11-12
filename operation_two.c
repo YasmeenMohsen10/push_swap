@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void ra_and_rb(our_node **head, char flag)
+void rra_and_rrb(our_node **head, char flag)
 {
     our_node *first;
 
@@ -11,14 +11,14 @@ void ra_and_rb(our_node **head, char flag)
     first -> next = NULL;
     lstadd_back(head, first);
     if(flag == 'a')
-        write(1, "ra\n", 3);
+        write(1, "rra\n", 4);
     else if (flag  == 'b')
-        write(1, "rb\n", 3);
+        write(1, "rrb\n", 4);
     else if (flag  == 'r')
-        write(1, "rr\n", 3);
+        write(1, "rrr\n", 4);
 }
 void rr(our_node **a, our_node **b)
 {
-    ra_and_rb(a, 'r');
-    ra_and_rb(b, '\0');
+    rra_and_rrb(a, 'r');
+    rra_and_rrb(b, '\0');
 }
