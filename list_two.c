@@ -6,15 +6,15 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 12:41:56 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 20:45:15 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/12 22:14:56 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned int	lstsize(our_node *lst)
+int	lstsize(our_node *lst)
 {
-	unsigned int	count;
+	int	count;
 	our_node			*str;
 
 	count = 0;
