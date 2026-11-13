@@ -7,7 +7,7 @@ RM	= rm -f
 LIBFT_DIR 	= printf
 LIBFT		= $(LIBFT_DIR)/libftprintf.a
 
-SRC	= main.c helper.c error.c list.c list_two.c operation_one.c simple_algo.c operation_two.c helper_two.c 
+SRC	= main.c helper.c error.c list.c list_two.c operation_one.c simple_algo.c operation_two.c simple_algo_two.c 
 OBJS	= $(SRC:.c=.o)
 
 all: $(NAME)
