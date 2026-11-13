@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 13:01:35 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/12 20:57:54 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:24:39 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ void ra_and_rb(our_node **head,char flag)
     current -> next = NULL;
     lstadd_front(head, last);
     if(flag == 'a')
-        write(1, "ra\n", 4);
+        write(1, "ra\n", 3);
     else if (flag  == 'b')
-        write(1, "rb\n", 4);
+        write(1, "rb\n", 3);
     else if (flag  == 'r')
-        write(1, "rr\n", 4);
+        write(1, "rr\n", 3);
 }
 void rrr(our_node **a, our_node **b)
 {

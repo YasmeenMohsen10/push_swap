@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:37:21 by ymuhsen           #+#    #+#             */
-/*   Updated: 2026/11/13 11:37:03 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:17:41 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,13 @@ int main(int argc, char **argv)
         if(!check_dub(head,str,&ptr))
             return (0);
     }
-    ft_printf("%i\n",lstlast(head) -> number);
+    //ft_printf("%i\n",lstlast(head) -> number);
     // while(head)
     // {
     //     printf ("%i\n", head -> number);
     //     head = head -> next;
     // }
-    //simple_algo(head);
+    simple_algo(head);
     lstclear(&head);
     frees(str,3);
     free(ptr);
