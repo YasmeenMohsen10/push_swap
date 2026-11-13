@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/07 20:49:02 by ralshraw          #+#    #+#             */
-/*   Updated: 2026/11/07 20:49:03 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/13 09:53:56 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int check_dub(our_node *head,char **str,char **argv)
         {
             if(i -> number == j -> number)
             {
-                ft_printf("Error \n");
+                write(2,"Error\n",6);
                 lstclear(&head);
-                frees(str,count_word(argv[1],' '));
+                frees(str,count_word(*argv,' '));
                 return (0);
             }    
             j = j -> next;
@@ -43,8 +43,8 @@ int cheak_digit(char **str,char **argv)
     {
         if(!is_digital(str[i]))
         {
-            ft_printf("Error \n");
-            frees(str,count_word(argv[1],' '));
+            write(2,"Error\n",6);
+            frees(str,count_word(*argv,' '));
             return (0);
         }
         i++;
@@ -55,9 +55,9 @@ int check_range(char **str,char **argv,our_node *head,long content)
 {
         if(content > 2147483647 || content < -2147483648 )
         {
-            ft_printf("Error \n");
+            write(2,"Error\n",6);
             lstclear(&head);
-            frees(str,count_word(argv[1],' '));
+            frees(str,count_word(*argv,' '));
             return (0);
         }
         return (1);
