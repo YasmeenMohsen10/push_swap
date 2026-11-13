@@ -6,7 +6,7 @@
 /*   By: ralshraw <ralshraw@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 11:37:21 by ymuhsen           #+#    #+#             */
-/*   Updated: 2026/11/13 09:57:14 by ralshraw         ###   ########.fr       */
+/*   Updated: 2026/11/13 11:37:03 by ralshraw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ int main(int argc, char **argv)
     int     flag[6];
     char    **str;
     int     i;
+    char *ptr;
+    char *temp;
     our_node *head;
     i = 1;
+    ptr = ft_strdup("");
+    ft_bzero(flag,sizeof(int)*6);
     if (argc == 1)
         return (0);
     if(ft_strncmp("--bench",argv[i],7) == 0)
@@ -78,11 +82,40 @@ int main(int argc, char **argv)
         if(!check_dub(head,str,&argv[i]))
             return (0);
     }
-    //ft_printf("%i",lstlast(head) -> number);
+    else
+    {
+        while(i < argc)
+        {
+            temp = ft_strjoin(ptr,argv[i]);
+            free(ptr);
+            ptr = temp;
+            if(i < argc - 1)
+            {
+            temp = ft_strjoin(ptr," ");
+            free(ptr);
+            ptr = temp;
+            }
+            i++;
+        }
+        str = ft_split(ptr, ' ');
+         if (!str)
+            return (0);
+         if(!cheak_digit(str,&ptr))
+            return (0);
+        head = stack_a(str,&ptr);
+        if(!head)
+            return (0);
+        if(!check_dub(head,str,&ptr))
+            return (0);
+    }
+    ft_printf("%i\n",lstlast(head) -> number);
     // while(head)
     // {
-    //     printf ("%i", head -> number);
+    //     printf ("%i\n", head -> number);
     //     head = head -> next;
     // }
-    simple_algo(head);
+    //simple_algo(head);
+    lstclear(&head);
+    frees(str,3);
+    free(ptr);
 }
